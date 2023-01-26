@@ -57,6 +57,7 @@
       <!-- .navbar -->
     </div>
   </header>
+
   <!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
@@ -94,9 +95,9 @@
             </div>
             <div class="col-lg-4 iphone-wrap">
               <iframe width="100%" height="100%" src="https://www.youtube.com/embed/2lMFETlgIDU"
-              title="INTRODUÇÃO ao D | Walt Connect: Cliente" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+                title="INTRODUÇÃO ao D | Walt Connect: Cliente" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
             </div>
           </div>
         </div>
@@ -249,7 +250,7 @@
     <section class="section">
       <div class="container">
 
-        <div class="row justify-content-center text-center"  id="valores">
+        <div class="row justify-content-center text-center" id="valores">
           <div class="col-md-7 mb-5">
             <h2 class="section-heading">Valores</h2>
             <p>Abaixo você encontra a tabela de valores do programa</p>
@@ -324,6 +325,52 @@
     <!-- End CTA Section -->
   </main>
   <!-- End #main -->
+
+  <style>
+    #promo-counter {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: rgb(49, 95, 165);
+      padding: 10px;
+      text-align: center;
+      z-index: 99999;
+    }
+  </style>
+
+  <script>
+    // Data e hora final do contador
+    var endDate = new Date();
+    endDate.setHours(endDate.getHours() + 2);
+
+    // Atualiza o contador a cada segundo
+    setInterval(function () {
+      var currentDate = new Date();
+      var diff = endDate - currentDate;
+
+      // Se o contador chegou a zero, mostra a mensagem "Tempo esgotado"
+      if (diff < 0) {
+        document.getElementById("countdown").innerHTML = "Tempo esgotado";
+        return;
+      }
+
+      // Calcula as horas, minutos e segundos restantes
+      var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      // Atualiza o contador na página
+      document.getElementById("countdown").innerHTML = hours + " horas, " + minutes + " minutos e " + seconds + " segundos";
+    }, 1000);
+
+  </script>
+
+  <div id="promo-counter" class="row">
+    <div class="col">
+      <p style="color: white;">🎉 Promoção de <b>75% OFF</b> termina em: <span id="countdown"></span> 🎉</p>
+    </div>
+  </div>
+
 
   <!-- ======= Footer ======= -->
   <footer class="footer" role="contentinfo">
